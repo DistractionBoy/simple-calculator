@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="homeworkApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Vibrent Homework</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+            <div class="" ng-controller="calcController as ctrl">
+                <h3>THE GREAT SIMPLE CALCULATOR</h3>
+                <form ng-submit="ctrl.showResult()">
+                    <div class="form-group" ng-class="{'has-error': ctrl.formatError, 'has-success': ctrl.formatSuccess}">
+                        <label for="inputCalculator">Enter Math Expression</label>
+                        <inline-input-calculator id="inputCalculator"
+                                                 ng-model="inlineFunc"
+                                                 error="ctrl.formatError"
+                                                 answer="ctrl.output"/>
+                        </inline-input-calculator>
+                       <p class="help-block">For example: "1 + 2", or "2345 - 2342 * 2" ... </p>
+                    </div>
+                    <div ng-show="ctrl.formatError">
+                        <h4>You are providing incorrect format</h4>
+                    </div>
+                    <button class="btn btn-default" type="button" ng-click="ctrl.clear()">Clear</button>
+                    <button class="btn btn-default" type="submit">Calculate</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    
+</body>
+
+</html>
